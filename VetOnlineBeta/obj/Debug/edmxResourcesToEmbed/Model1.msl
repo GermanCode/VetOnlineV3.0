@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="vetonline3ModelStoreContainer" CdmEntityContainer="vetonline3Entities">
+    <EntitySetMapping Name="cliente">
+      <EntityTypeMapping TypeName="vetonline3Model.cliente">
+        <MappingFragment StoreEntitySet="cliente">
+          <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+          <ScalarProperty Name="fkPersona" ColumnName="fkPersona" />
+          <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+          <ScalarProperty Name="fecha_creacion_c" ColumnName="fecha_creacion_c" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="dia">
+      <EntityTypeMapping TypeName="vetonline3Model.dia">
+        <MappingFragment StoreEntitySet="dia">
+          <ScalarProperty Name="idDia" ColumnName="idDia" />
+          <ScalarProperty Name="Dia1" ColumnName="Dia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="docente">
+      <EntityTypeMapping TypeName="vetonline3Model.docente">
+        <MappingFragment StoreEntitySet="docente">
+          <ScalarProperty Name="idDocente" ColumnName="idDocente" />
+          <ScalarProperty Name="fecha_creacion_d" ColumnName="fecha_creacion_d" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="enfermedades">
+      <EntityTypeMapping TypeName="vetonline3Model.enfermedades">
+        <MappingFragment StoreEntitySet="enfermedades">
+          <ScalarProperty Name="idEnfermedad" ColumnName="idEnfermedad" />
+          <ScalarProperty Name="descEnfermedad" ColumnName="descEnfermedad" />
+          <ScalarProperty Name="fkTipoEnf" ColumnName="fkTipoEnf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estudiante">
+      <EntityTypeMapping TypeName="vetonline3Model.estudiante">
+        <MappingFragment StoreEntitySet="estudiante">
+          <ScalarProperty Name="idEstudiante" ColumnName="idEstudiante" />
+          <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+          <ScalarProperty Name="fkTutor" ColumnName="fkTutor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="estudios_previos">
+      <EntityTypeMapping TypeName="vetonline3Model.estudios_previos">
+        <MappingFragment StoreEntitySet="estudios_previos">
+          <ScalarProperty Name="id_estudios_serv" ColumnName="id_estudios_serv" />
+          <ScalarProperty Name="Sintomas" ColumnName="Sintomas" />
+          <ScalarProperty Name="fechEnf" ColumnName="fechEnf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="evaluacion_servicio">
+      <EntityTypeMapping TypeName="vetonline3Model.evaluacion_servicio">
+        <MappingFragment StoreEntitySet="evaluacion_servicio">
+          <ScalarProperty Name="idEvaServ" ColumnName="idEvaServ" />
+          <ScalarProperty Name="notaEva" ColumnName="notaEva" />
+          <ScalarProperty Name="justifEva" ColumnName="justifEva" />
+          <ScalarProperty Name="fechEva" ColumnName="fechEva" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="horas">
+      <EntityTypeMapping TypeName="vetonline3Model.horas">
+        <MappingFragment StoreEntitySet="horas">
+          <ScalarProperty Name="idHora" ColumnName="idHora" />
+          <ScalarProperty Name="estadoh" ColumnName="estadoh" />
+          <ScalarProperty Name="Horas1" ColumnName="Horas" />
+          <ScalarProperty Name="fkDia" ColumnName="fkDia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="mascota">
+      <EntityTypeMapping TypeName="vetonline3Model.mascota">
+        <MappingFragment StoreEntitySet="mascota">
+          <ScalarProperty Name="idMascota" ColumnName="idMascota" />
+          <ScalarProperty Name="fkPersona" ColumnName="fkPersona" />
+          <ScalarProperty Name="nombreMasc" ColumnName="nombreMasc" />
+          <ScalarProperty Name="tipoMasc" ColumnName="tipoMasc" />
+          <ScalarProperty Name="Raza" ColumnName="Raza" />
+          <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="medicacion">
+      <EntityTypeMapping TypeName="vetonline3Model.medicacion">
+        <MappingFragment StoreEntitySet="medicacion">
+          <ScalarProperty Name="id_medicacion_servicio" ColumnName="id_medicacion_servicio" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Medicamento" ColumnName="Medicamento" />
+          <ScalarProperty Name="Posologia" ColumnName="Posologia" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="persona">
+      <EntityTypeMapping TypeName="vetonline3Model.persona">
+        <MappingFragment StoreEntitySet="persona">
+          <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="fkRol" ColumnName="fkRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="raza">
+      <EntityTypeMapping TypeName="vetonline3Model.raza">
+        <MappingFragment StoreEntitySet="raza">
+          <ScalarProperty Name="idRaza" ColumnName="idRaza" />
+          <ScalarProperty Name="fkTipoMasc" ColumnName="fkTipoMasc" />
+          <ScalarProperty Name="DescRaza" ColumnName="DescRaza" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="rol">
+      <EntityTypeMapping TypeName="vetonline3Model.rol">
+        <MappingFragment StoreEntitySet="rol">
+          <ScalarProperty Name="idRol" ColumnName="idRol" />
+          <ScalarProperty Name="descRol" ColumnName="descRol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="servicio">
+      <EntityTypeMapping TypeName="vetonline3Model.servicio">
+        <MappingFragment StoreEntitySet="servicio">
+          <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+          <ScalarProperty Name="fkCliente" ColumnName="fkCliente" />
+          <ScalarProperty Name="fkMedico" ColumnName="fkMedico" />
+          <ScalarProperty Name="fkMascota" ColumnName="fkMascota" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="fecha_servicio" ColumnName="fecha_servicio" />
+          <ScalarProperty Name="fkEnfermedad" ColumnName="fkEnfermedad" />
+          <ScalarProperty Name="fkHora" ColumnName="fkHora" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipoenfermedad">
+      <EntityTypeMapping TypeName="vetonline3Model.tipoenfermedad">
+        <MappingFragment StoreEntitySet="tipoenfermedad">
+          <ScalarProperty Name="id_tipo_enfermedad" ColumnName="id_tipo_enfermedad" />
+          <ScalarProperty Name="tipoEnf" ColumnName="tipoEnf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tipomascota">
+      <EntityTypeMapping TypeName="vetonline3Model.tipomascota">
+        <MappingFragment StoreEntitySet="tipomascota">
+          <ScalarProperty Name="idTipoMascota" ColumnName="idTipoMascota" />
+          <ScalarProperty Name="descTipoMasc" ColumnName="descTipoMasc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vacunas">
+      <EntityTypeMapping TypeName="vetonline3Model.vacunas">
+        <MappingFragment StoreEntitySet="vacunas">
+          <ScalarProperty Name="idVacuna" ColumnName="idVacuna" />
+          <ScalarProperty Name="fkTipoEnfermedad" ColumnName="fkTipoEnfermedad" />
+          <ScalarProperty Name="descVacuna" ColumnName="descVacuna" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="usuarios">
+      <EntityTypeMapping TypeName="vetonline3Model.usuarios">
+        <MappingFragment StoreEntitySet="usuarios">
+          <ScalarProperty Name="username" ColumnName="username" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="fecha_creacion_u" ColumnName="fecha_creacion_u" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="vacunas_mascota">
+      <EntityTypeMapping TypeName="vetonline3Model.vacunas_mascota">
+        <MappingFragment StoreEntitySet="vacunas_mascota">
+          <ScalarProperty Name="idVacuna" ColumnName="idVacuna" />
+          <ScalarProperty Name="idMascota" ColumnName="idMascota" />
+          <ScalarProperty Name="fechaAplicacion" ColumnName="fechaAplicacion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

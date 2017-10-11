@@ -1,0 +1,42 @@
+﻿@model VetOnlineBeta.estudiante
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>estudiante</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Telefono)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telefono)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docente.idDocente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docente.idDocente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.persona.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.persona.Nombres)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idEstudiante }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

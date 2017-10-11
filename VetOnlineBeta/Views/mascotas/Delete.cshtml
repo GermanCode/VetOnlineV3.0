@@ -1,0 +1,64 @@
+﻿@model VetOnlineBeta.mascota
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>mascota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreMasc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreMasc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.persona.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.persona.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raza1.DescRaza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raza1.DescRaza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipomascota.descTipoMasc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipomascota.descTipoMasc)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

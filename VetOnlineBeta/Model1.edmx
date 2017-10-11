@@ -1,0 +1,1225 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="vetonline3Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="int" Nullable="false" />
+          <Property Name="fkPersona" Type="int" Nullable="false" />
+          <Property Name="Direccion" Type="int" Nullable="false" />
+          <Property Name="fecha_creacion_c" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="dia">
+          <Key>
+            <PropertyRef Name="idDia" />
+          </Key>
+          <Property Name="idDia" Type="int" Nullable="false" />
+          <Property Name="Dia" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="docente">
+          <Key>
+            <PropertyRef Name="idDocente" />
+          </Key>
+          <Property Name="idDocente" Type="int" Nullable="false" />
+          <Property Name="fecha_creacion_d" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Telefono" Type="bigint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="enfermedades">
+          <Key>
+            <PropertyRef Name="idEnfermedad" />
+          </Key>
+          <Property Name="idEnfermedad" Type="int" Nullable="false" />
+          <Property Name="descEnfermedad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fkTipoEnf" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estudiante">
+          <Key>
+            <PropertyRef Name="idEstudiante" />
+          </Key>
+          <Property Name="idEstudiante" Type="int" Nullable="false" />
+          <Property Name="Telefono" Type="bigint" Nullable="false" />
+          <Property Name="fkTutor" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="estudios_previos">
+          <Key>
+            <PropertyRef Name="id_estudios_serv" />
+          </Key>
+          <Property Name="id_estudios_serv" Type="int" Nullable="false" />
+          <Property Name="Sintomas" Type="int" Nullable="false" />
+          <Property Name="fechEnf" Type="date" Nullable="false" />
+        </EntityType>
+        <EntityType Name="evaluacion_servicio">
+          <Key>
+            <PropertyRef Name="idEvaServ" />
+          </Key>
+          <Property Name="idEvaServ" Type="int" Nullable="false" />
+          <Property Name="notaEva" Type="int" Nullable="false" />
+          <Property Name="justifEva" Type="int" Nullable="false" />
+          <Property Name="fechEva" Type="timestamp" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="horas">
+          <Key>
+            <PropertyRef Name="idHora" />
+          </Key>
+          <Property Name="idHora" Type="int" Nullable="false" />
+          <Property Name="estadoh" Type="enum" Nullable="false" />
+          <Property Name="Horas" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fkDia" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="mascota">
+          <Key>
+            <PropertyRef Name="idMascota" />
+          </Key>
+          <Property Name="idMascota" Type="int" Nullable="false" />
+          <Property Name="fkPersona" Type="int" Nullable="false" />
+          <Property Name="nombreMasc" Type="int" Nullable="false" />
+          <Property Name="tipoMasc" Type="int" Nullable="false" />
+          <Property Name="Raza" Type="int" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="medicacion">
+          <Key>
+            <PropertyRef Name="id_medicacion_servicio" />
+          </Key>
+          <Property Name="id_medicacion_servicio" Type="int" Nullable="false" />
+          <Property Name="Cantidad" Type="int" Nullable="false" />
+          <Property Name="Medicamento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Posologia" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="Identificacion" />
+          </Key>
+          <Property Name="Identificacion" Type="int" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fkRol" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="raza">
+          <Key>
+            <PropertyRef Name="idRaza" />
+          </Key>
+          <Property Name="idRaza" Type="int" Nullable="false" />
+          <Property Name="fkTipoMasc" Type="int" Nullable="false" />
+          <Property Name="DescRaza" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="int" Nullable="false" />
+          <Property Name="descRol" Type="enum" Nullable="false" />
+        </EntityType>
+        <EntityType Name="servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="int" Nullable="false" />
+          <Property Name="fkCliente" Type="int" Nullable="false" />
+          <Property Name="fkMedico" Type="int" Nullable="false" />
+          <Property Name="fkMascota" Type="int" Nullable="false" />
+          <Property Name="Estado" Type="enum" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_servicio" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fkEnfermedad" Type="int" Nullable="false" />
+          <Property Name="fkHora" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipoenfermedad">
+          <Key>
+            <PropertyRef Name="id_tipo_enfermedad" />
+          </Key>
+          <Property Name="id_tipo_enfermedad" Type="int" Nullable="false" />
+          <Property Name="tipoEnf" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipomascota">
+          <Key>
+            <PropertyRef Name="idTipoMascota" />
+          </Key>
+          <Property Name="idTipoMascota" Type="int" Nullable="false" />
+          <Property Name="descTipoMasc" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.vetonline3.usuarios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="fecha_creacion_u" />
+          </Key>
+          <Property Name="username" Type="int" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fecha_creacion_u" Type="datetime" Precision="0" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="vacunas">
+          <Key>
+            <PropertyRef Name="idVacuna" />
+          </Key>
+          <Property Name="idVacuna" Type="int" Nullable="false" />
+          <Property Name="fkTipoEnfermedad" Type="int" Nullable="false" />
+          <Property Name="descVacuna" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'def.vetonline3.vacunas_mascota' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vacunas_mascota">
+          <Key>
+            <PropertyRef Name="idVacuna" />
+            <PropertyRef Name="idMascota" />
+            <PropertyRef Name="fechaAplicacion" />
+          </Key>
+          <Property Name="idVacuna" Type="int" Nullable="false" />
+          <Property Name="idMascota" Type="int" Nullable="false" />
+          <Property Name="fechaAplicacion" Type="date" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_doc_per">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="docente" Type="Self.docente" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="docente">
+              <PropertyRef Name="idDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enf_tipoenf">
+          <End Role="tipoenfermedad" Type="Self.tipoenfermedad" Multiplicity="1" />
+          <End Role="enfermedades" Type="Self.enfermedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoenfermedad">
+              <PropertyRef Name="id_tipo_enfermedad" />
+            </Principal>
+            <Dependent Role="enfermedades">
+              <PropertyRef Name="fkTipoEnf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_est_doc">
+          <End Role="docente" Type="Self.docente" Multiplicity="1" />
+          <End Role="estudiante" Type="Self.estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="docente">
+              <PropertyRef Name="idDocente" />
+            </Principal>
+            <Dependent Role="estudiante">
+              <PropertyRef Name="fkTutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_est_per">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="estudiante" Type="Self.estudiante" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="estudiante">
+              <PropertyRef Name="idEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_evs_serv">
+          <End Role="servicio" Type="Self.servicio" Multiplicity="1" />
+          <End Role="evaluacion_servicio" Type="Self.evaluacion_servicio" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="evaluacion_servicio">
+              <PropertyRef Name="idEvaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_horas_dia">
+          <End Role="dia" Type="Self.dia" Multiplicity="1" />
+          <End Role="horas" Type="Self.horas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dia">
+              <PropertyRef Name="idDia" />
+            </Principal>
+            <Dependent Role="horas">
+              <PropertyRef Name="fkDia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_per">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="mascota" Type="Self.mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="mascota">
+              <PropertyRef Name="fkPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_raza">
+          <End Role="raza" Type="Self.raza" Multiplicity="1" />
+          <End Role="mascota" Type="Self.mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="raza">
+              <PropertyRef Name="idRaza" />
+            </Principal>
+            <Dependent Role="mascota">
+              <PropertyRef Name="Raza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_tipomasc">
+          <End Role="tipomascota" Type="Self.tipomascota" Multiplicity="1" />
+          <End Role="mascota" Type="Self.mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipomascota">
+              <PropertyRef Name="idTipoMascota" />
+            </Principal>
+            <Dependent Role="mascota">
+              <PropertyRef Name="tipoMasc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_vac">
+          <End Role="mascota" Type="Self.mascota" Multiplicity="1" />
+          <End Role="vacunas_mascota" Type="Self.vacunas_mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mascota">
+              <PropertyRef Name="idMascota" />
+            </Principal>
+            <Dependent Role="vacunas_mascota">
+              <PropertyRef Name="idMascota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_medicacion_servicio">
+          <End Role="servicio" Type="Self.servicio" Multiplicity="1" />
+          <End Role="medicacion" Type="Self.medicacion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="medicacion">
+              <PropertyRef Name="id_medicacion_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_raza_tipoMasc">
+          <End Role="tipomascota" Type="Self.tipomascota" Multiplicity="1" />
+          <End Role="raza" Type="Self.raza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipomascota">
+              <PropertyRef Name="idTipoMascota" />
+            </Principal>
+            <Dependent Role="raza">
+              <PropertyRef Name="fkTipoMasc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_cli">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_enf">
+          <End Role="enfermedades" Type="Self.enfermedades" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="enfermedades">
+              <PropertyRef Name="idEnfermedad" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkEnfermedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_hora">
+          <End Role="horas" Type="Self.horas" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="horas">
+              <PropertyRef Name="idHora" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkHora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_masc">
+          <End Role="mascota" Type="Self.mascota" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mascota">
+              <PropertyRef Name="idMascota" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkMascota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_med">
+          <End Role="docente" Type="Self.docente" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="docente">
+              <PropertyRef Name="idDocente" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vac_masc">
+          <End Role="vacunas" Type="Self.vacunas" Multiplicity="1" />
+          <End Role="vacunas_mascota" Type="Self.vacunas_mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vacunas">
+              <PropertyRef Name="idVacuna" />
+            </Principal>
+            <Dependent Role="vacunas_mascota">
+              <PropertyRef Name="idVacuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vetonline3ModelStoreContainer">
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="dia" EntityType="Self.dia" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="docente" EntityType="Self.docente" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="enfermedades" EntityType="Self.enfermedades" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="estudiante" EntityType="Self.estudiante" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="estudios_previos" EntityType="Self.estudios_previos" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="evaluacion_servicio" EntityType="Self.evaluacion_servicio" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="horas" EntityType="Self.horas" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="mascota" EntityType="Self.mascota" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="medicacion" EntityType="Self.medicacion" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="persona" EntityType="Self.persona" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="raza" EntityType="Self.raza" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="rol" EntityType="Self.rol" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="servicio" EntityType="Self.servicio" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="tipoenfermedad" EntityType="Self.tipoenfermedad" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="tipomascota" EntityType="Self.tipomascota" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="vacunas" EntityType="Self.vacunas" Schema="vetonline3" store:Type="Tables" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" store:Type="Tables" store:Schema="vetonline3">
+            <DefiningQuery>SELECT
+`usuarios`.`username`, 
+`usuarios`.`password`, 
+`usuarios`.`fecha_creacion_u`
+FROM `usuarios` AS `usuarios`</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vacunas_mascota" EntityType="Self.vacunas_mascota" store:Type="Tables" store:Schema="vetonline3">
+            <DefiningQuery>SELECT
+`vacunas_mascota`.`idVacuna`, 
+`vacunas_mascota`.`idMascota`, 
+`vacunas_mascota`.`fechaAplicacion`
+FROM `vacunas_mascota` AS `vacunas_mascota`</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="fk_doc_per" Association="Self.fk_doc_per">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="docente" EntitySet="docente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enf_tipoenf" Association="Self.fk_enf_tipoenf">
+            <End Role="tipoenfermedad" EntitySet="tipoenfermedad" />
+            <End Role="enfermedades" EntitySet="enfermedades" />
+          </AssociationSet>
+          <AssociationSet Name="fk_est_doc" Association="Self.fk_est_doc">
+            <End Role="docente" EntitySet="docente" />
+            <End Role="estudiante" EntitySet="estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="fk_est_per" Association="Self.fk_est_per">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="estudiante" EntitySet="estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="fk_evs_serv" Association="Self.fk_evs_serv">
+            <End Role="servicio" EntitySet="servicio" />
+            <End Role="evaluacion_servicio" EntitySet="evaluacion_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_horas_dia" Association="Self.fk_horas_dia">
+            <End Role="dia" EntitySet="dia" />
+            <End Role="horas" EntitySet="horas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_per" Association="Self.fk_masc_per">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="mascota" EntitySet="mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_raza" Association="Self.fk_masc_raza">
+            <End Role="raza" EntitySet="raza" />
+            <End Role="mascota" EntitySet="mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_tipomasc" Association="Self.fk_masc_tipomasc">
+            <End Role="tipomascota" EntitySet="tipomascota" />
+            <End Role="mascota" EntitySet="mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_vac" Association="Self.fk_masc_vac">
+            <End Role="mascota" EntitySet="mascota" />
+            <End Role="vacunas_mascota" EntitySet="vacunas_mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_medicacion_servicio" Association="Self.fk_medicacion_servicio">
+            <End Role="servicio" EntitySet="servicio" />
+            <End Role="medicacion" EntitySet="medicacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_raza_tipoMasc" Association="Self.fk_raza_tipoMasc">
+            <End Role="tipomascota" EntitySet="tipomascota" />
+            <End Role="raza" EntitySet="raza" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_cli" Association="Self.fk_serv_cli">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_enf" Association="Self.fk_serv_enf">
+            <End Role="enfermedades" EntitySet="enfermedades" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_hora" Association="Self.fk_serv_hora">
+            <End Role="horas" EntitySet="horas" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_masc" Association="Self.fk_serv_masc">
+            <End Role="mascota" EntitySet="mascota" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_med" Association="Self.fk_serv_med">
+            <End Role="docente" EntitySet="docente" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vac_masc" Association="Self.fk_vac_masc">
+            <End Role="vacunas" EntitySet="vacunas" />
+            <End Role="vacunas_mascota" EntitySet="vacunas_mascota" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="vetonline3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="id_cliente" />
+          </Key>
+          <Property Name="id_cliente" Type="Int32" Nullable="false" />
+          <Property Name="fkPersona" Type="Int32" Nullable="false" />
+          <Property Name="Direccion" Type="Int32" Nullable="false" />
+          <Property Name="fecha_creacion_c" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="servicio" Relationship="Self.fk_serv_cli" FromRole="cliente" ToRole="servicio" />
+        </EntityType>
+        <EntityType Name="dia">
+          <Key>
+            <PropertyRef Name="idDia" />
+          </Key>
+          <Property Name="idDia" Type="Int32" Nullable="false" />
+          <Property Name="Dia1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="horas" Relationship="Self.fk_horas_dia" FromRole="dia" ToRole="horas" />
+        </EntityType>
+        <EntityType Name="docente">
+          <Key>
+            <PropertyRef Name="idDocente" />
+          </Key>
+          <Property Name="idDocente" Type="Int32" Nullable="false" />
+          <Property Name="fecha_creacion_d" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Telefono" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="persona" Relationship="Self.fk_doc_per" FromRole="docente" ToRole="persona" />
+          <NavigationProperty Name="estudiante" Relationship="Self.fk_est_doc" FromRole="docente" ToRole="estudiante" />
+          <NavigationProperty Name="servicio" Relationship="Self.fk_serv_med" FromRole="docente" ToRole="servicio" />
+        </EntityType>
+        <EntityType Name="enfermedades">
+          <Key>
+            <PropertyRef Name="idEnfermedad" />
+          </Key>
+          <Property Name="idEnfermedad" Type="Int32" Nullable="false" />
+          <Property Name="descEnfermedad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fkTipoEnf" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tipoenfermedad" Relationship="Self.fk_enf_tipoenf" FromRole="enfermedades" ToRole="tipoenfermedad" />
+          <NavigationProperty Name="servicio" Relationship="Self.fk_serv_enf" FromRole="enfermedades" ToRole="servicio" />
+        </EntityType>
+        <EntityType Name="estudiante">
+          <Key>
+            <PropertyRef Name="idEstudiante" />
+          </Key>
+          <Property Name="idEstudiante" Type="Int32" Nullable="false" />
+          <Property Name="Telefono" Type="Int64" Nullable="false" />
+          <Property Name="fkTutor" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="docente" Relationship="Self.fk_est_doc" FromRole="estudiante" ToRole="docente" />
+          <NavigationProperty Name="persona" Relationship="Self.fk_est_per" FromRole="estudiante" ToRole="persona" />
+        </EntityType>
+        <EntityType Name="estudios_previos">
+          <Key>
+            <PropertyRef Name="id_estudios_serv" />
+          </Key>
+          <Property Name="id_estudios_serv" Type="Int32" Nullable="false" />
+          <Property Name="Sintomas" Type="Int32" Nullable="false" />
+          <Property Name="fechEnf" Type="DateTime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="evaluacion_servicio">
+          <Key>
+            <PropertyRef Name="idEvaServ" />
+          </Key>
+          <Property Name="idEvaServ" Type="Int32" Nullable="false" />
+          <Property Name="notaEva" Type="Int32" Nullable="false" />
+          <Property Name="justifEva" Type="Int32" Nullable="false" />
+          <Property Name="fechEva" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="servicio" Relationship="Self.fk_evs_serv" FromRole="evaluacion_servicio" ToRole="servicio" />
+        </EntityType>
+        <EntityType Name="horas">
+          <Key>
+            <PropertyRef Name="idHora" />
+          </Key>
+          <Property Name="idHora" Type="Int32" Nullable="false" />
+          <Property Name="estadoh" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Horas1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fkDia" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dia" Relationship="Self.fk_horas_dia" FromRole="horas" ToRole="dia" />
+          <NavigationProperty Name="servicio" Relationship="Self.fk_serv_hora" FromRole="horas" ToRole="servicio" />
+        </EntityType>
+        <EntityType Name="mascota">
+          <Key>
+            <PropertyRef Name="idMascota" />
+          </Key>
+          <Property Name="idMascota" Type="Int32" Nullable="false" />
+          <Property Name="fkPersona" Type="Int32" Nullable="false" />
+          <Property Name="nombreMasc" Type="Int32" Nullable="false" />
+          <Property Name="tipoMasc" Type="Int32" Nullable="false" />
+          <Property Name="Raza" Type="Int32" Nullable="false" />
+          <Property Name="fecha_nacimiento" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="persona" Relationship="Self.fk_masc_per" FromRole="mascota" ToRole="persona" />
+          <NavigationProperty Name="raza1" Relationship="Self.fk_masc_raza" FromRole="mascota" ToRole="raza" />
+          <NavigationProperty Name="tipomascota" Relationship="Self.fk_masc_tipomasc" FromRole="mascota" ToRole="tipomascota" />
+          <NavigationProperty Name="vacunas_mascota" Relationship="Self.fk_masc_vac" FromRole="mascota" ToRole="vacunas_mascota" />
+          <NavigationProperty Name="servicio" Relationship="Self.fk_serv_masc" FromRole="mascota" ToRole="servicio" />
+        </EntityType>
+        <EntityType Name="medicacion">
+          <Key>
+            <PropertyRef Name="id_medicacion_servicio" />
+          </Key>
+          <Property Name="id_medicacion_servicio" Type="Int32" Nullable="false" />
+          <Property Name="Cantidad" Type="Int32" Nullable="false" />
+          <Property Name="Medicamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Posologia" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="servicio" Relationship="Self.fk_medicacion_servicio" FromRole="medicacion" ToRole="servicio" />
+        </EntityType>
+        <EntityType Name="persona">
+          <Key>
+            <PropertyRef Name="Identificacion" />
+          </Key>
+          <Property Name="Identificacion" Type="Int32" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fkRol" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="docente" Relationship="Self.fk_doc_per" FromRole="persona" ToRole="docente" />
+          <NavigationProperty Name="estudiante" Relationship="Self.fk_est_per" FromRole="persona" ToRole="estudiante" />
+          <NavigationProperty Name="mascota" Relationship="Self.fk_masc_per" FromRole="persona" ToRole="mascota" />
+        </EntityType>
+        <EntityType Name="raza">
+          <Key>
+            <PropertyRef Name="idRaza" />
+          </Key>
+          <Property Name="idRaza" Type="Int32" Nullable="false" />
+          <Property Name="fkTipoMasc" Type="Int32" Nullable="false" />
+          <Property Name="DescRaza" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="mascota" Relationship="Self.fk_masc_raza" FromRole="raza" ToRole="mascota" />
+          <NavigationProperty Name="tipomascota" Relationship="Self.fk_raza_tipoMasc" FromRole="raza" ToRole="tipomascota" />
+        </EntityType>
+        <EntityType Name="rol">
+          <Key>
+            <PropertyRef Name="idRol" />
+          </Key>
+          <Property Name="idRol" Type="Int32" Nullable="false" />
+          <Property Name="descRol" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="Int32" Nullable="false" />
+          <Property Name="fkCliente" Type="Int32" Nullable="false" />
+          <Property Name="fkMedico" Type="Int32" Nullable="false" />
+          <Property Name="fkMascota" Type="Int32" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="65532" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_servicio" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fkEnfermedad" Type="Int32" Nullable="false" />
+          <Property Name="fkHora" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="cliente" Relationship="Self.fk_serv_cli" FromRole="servicio" ToRole="cliente" />
+          <NavigationProperty Name="docente" Relationship="Self.fk_serv_med" FromRole="servicio" ToRole="docente" />
+          <NavigationProperty Name="enfermedades" Relationship="Self.fk_serv_enf" FromRole="servicio" ToRole="enfermedades" />
+          <NavigationProperty Name="evaluacion_servicio" Relationship="Self.fk_evs_serv" FromRole="servicio" ToRole="evaluacion_servicio" />
+          <NavigationProperty Name="horas" Relationship="Self.fk_serv_hora" FromRole="servicio" ToRole="horas" />
+          <NavigationProperty Name="mascota" Relationship="Self.fk_serv_masc" FromRole="servicio" ToRole="mascota" />
+          <NavigationProperty Name="medicacion" Relationship="Self.fk_medicacion_servicio" FromRole="servicio" ToRole="medicacion" />
+        </EntityType>
+        <EntityType Name="tipoenfermedad">
+          <Key>
+            <PropertyRef Name="id_tipo_enfermedad" />
+          </Key>
+          <Property Name="id_tipo_enfermedad" Type="Int32" Nullable="false" />
+          <Property Name="tipoEnf" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="enfermedades" Relationship="Self.fk_enf_tipoenf" FromRole="tipoenfermedad" ToRole="enfermedades" />
+        </EntityType>
+        <EntityType Name="tipomascota">
+          <Key>
+            <PropertyRef Name="idTipoMascota" />
+          </Key>
+          <Property Name="idTipoMascota" Type="Int32" Nullable="false" />
+          <Property Name="descTipoMasc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="mascota" Relationship="Self.fk_masc_tipomasc" FromRole="tipomascota" ToRole="mascota" />
+          <NavigationProperty Name="raza" Relationship="Self.fk_raza_tipoMasc" FromRole="tipomascota" ToRole="raza" />
+        </EntityType>
+        <EntityType Name="vacunas">
+          <Key>
+            <PropertyRef Name="idVacuna" />
+          </Key>
+          <Property Name="idVacuna" Type="Int32" Nullable="false" />
+          <Property Name="fkTipoEnfermedad" Type="Int32" Nullable="false" />
+          <Property Name="descVacuna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="vacunas_mascota" Relationship="Self.fk_vac_masc" FromRole="vacunas" ToRole="vacunas_mascota" />
+        </EntityType>
+        <EntityType Name="usuarios">
+          <Key>
+            <PropertyRef Name="username" />
+            <PropertyRef Name="password" />
+            <PropertyRef Name="fecha_creacion_u" />
+          </Key>
+          <Property Name="username" Type="Int32" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fecha_creacion_u" Type="DateTime" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+        <EntityType Name="vacunas_mascota">
+          <Key>
+            <PropertyRef Name="idVacuna" />
+            <PropertyRef Name="idMascota" />
+            <PropertyRef Name="fechaAplicacion" />
+          </Key>
+          <Property Name="idVacuna" Type="Int32" Nullable="false" />
+          <Property Name="idMascota" Type="Int32" Nullable="false" />
+          <Property Name="fechaAplicacion" Type="DateTime" Nullable="false" />
+          <NavigationProperty Name="mascota" Relationship="Self.fk_masc_vac" FromRole="vacunas_mascota" ToRole="mascota" />
+          <NavigationProperty Name="vacunas" Relationship="Self.fk_vac_masc" FromRole="vacunas_mascota" ToRole="vacunas" />
+        </EntityType>
+        <Association Name="fk_serv_cli">
+          <End Role="cliente" Type="Self.cliente" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="cliente">
+              <PropertyRef Name="id_cliente" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_horas_dia">
+          <End Role="dia" Type="Self.dia" Multiplicity="1" />
+          <End Role="horas" Type="Self.horas" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="dia">
+              <PropertyRef Name="idDia" />
+            </Principal>
+            <Dependent Role="horas">
+              <PropertyRef Name="fkDia" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_doc_per">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="docente" Type="Self.docente" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="docente">
+              <PropertyRef Name="idDocente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_est_doc">
+          <End Role="docente" Type="Self.docente" Multiplicity="1" />
+          <End Role="estudiante" Type="Self.estudiante" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="docente">
+              <PropertyRef Name="idDocente" />
+            </Principal>
+            <Dependent Role="estudiante">
+              <PropertyRef Name="fkTutor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_med">
+          <End Role="docente" Type="Self.docente" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="docente">
+              <PropertyRef Name="idDocente" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkMedico" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_enf_tipoenf">
+          <End Role="tipoenfermedad" Type="Self.tipoenfermedad" Multiplicity="1" />
+          <End Role="enfermedades" Type="Self.enfermedades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipoenfermedad">
+              <PropertyRef Name="id_tipo_enfermedad" />
+            </Principal>
+            <Dependent Role="enfermedades">
+              <PropertyRef Name="fkTipoEnf" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_enf">
+          <End Role="enfermedades" Type="Self.enfermedades" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="enfermedades">
+              <PropertyRef Name="idEnfermedad" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkEnfermedad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_est_per">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="estudiante" Type="Self.estudiante" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="estudiante">
+              <PropertyRef Name="idEstudiante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_evs_serv">
+          <End Role="servicio" Type="Self.servicio" Multiplicity="1" />
+          <End Role="evaluacion_servicio" Type="Self.evaluacion_servicio" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="evaluacion_servicio">
+              <PropertyRef Name="idEvaServ" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_hora">
+          <End Role="horas" Type="Self.horas" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="horas">
+              <PropertyRef Name="idHora" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkHora" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_per">
+          <End Role="persona" Type="Self.persona" Multiplicity="1" />
+          <End Role="mascota" Type="Self.mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="persona">
+              <PropertyRef Name="Identificacion" />
+            </Principal>
+            <Dependent Role="mascota">
+              <PropertyRef Name="fkPersona" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_raza">
+          <End Role="raza" Type="Self.raza" Multiplicity="1" />
+          <End Role="mascota" Type="Self.mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="raza">
+              <PropertyRef Name="idRaza" />
+            </Principal>
+            <Dependent Role="mascota">
+              <PropertyRef Name="Raza" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_tipomasc">
+          <End Role="tipomascota" Type="Self.tipomascota" Multiplicity="1" />
+          <End Role="mascota" Type="Self.mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipomascota">
+              <PropertyRef Name="idTipoMascota" />
+            </Principal>
+            <Dependent Role="mascota">
+              <PropertyRef Name="tipoMasc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_masc_vac">
+          <End Role="mascota" Type="Self.mascota" Multiplicity="1" />
+          <End Role="vacunas_mascota" Type="Self.vacunas_mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mascota">
+              <PropertyRef Name="idMascota" />
+            </Principal>
+            <Dependent Role="vacunas_mascota">
+              <PropertyRef Name="idMascota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_serv_masc">
+          <End Role="mascota" Type="Self.mascota" Multiplicity="1" />
+          <End Role="servicio" Type="Self.servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="mascota">
+              <PropertyRef Name="idMascota" />
+            </Principal>
+            <Dependent Role="servicio">
+              <PropertyRef Name="fkMascota" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_medicacion_servicio">
+          <End Role="servicio" Type="Self.servicio" Multiplicity="1" />
+          <End Role="medicacion" Type="Self.medicacion" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="medicacion">
+              <PropertyRef Name="id_medicacion_servicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_raza_tipoMasc">
+          <End Role="tipomascota" Type="Self.tipomascota" Multiplicity="1" />
+          <End Role="raza" Type="Self.raza" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipomascota">
+              <PropertyRef Name="idTipoMascota" />
+            </Principal>
+            <Dependent Role="raza">
+              <PropertyRef Name="fkTipoMasc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_vac_masc">
+          <End Role="vacunas" Type="Self.vacunas" Multiplicity="1" />
+          <End Role="vacunas_mascota" Type="Self.vacunas_mascota" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="vacunas">
+              <PropertyRef Name="idVacuna" />
+            </Principal>
+            <Dependent Role="vacunas_mascota">
+              <PropertyRef Name="idVacuna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="vetonline3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="dia" EntityType="Self.dia" />
+          <EntitySet Name="docente" EntityType="Self.docente" />
+          <EntitySet Name="enfermedades" EntityType="Self.enfermedades" />
+          <EntitySet Name="estudiante" EntityType="Self.estudiante" />
+          <EntitySet Name="estudios_previos" EntityType="Self.estudios_previos" />
+          <EntitySet Name="evaluacion_servicio" EntityType="Self.evaluacion_servicio" />
+          <EntitySet Name="horas" EntityType="Self.horas" />
+          <EntitySet Name="mascota" EntityType="Self.mascota" />
+          <EntitySet Name="medicacion" EntityType="Self.medicacion" />
+          <EntitySet Name="persona" EntityType="Self.persona" />
+          <EntitySet Name="raza" EntityType="Self.raza" />
+          <EntitySet Name="rol" EntityType="Self.rol" />
+          <EntitySet Name="servicio" EntityType="Self.servicio" />
+          <EntitySet Name="tipoenfermedad" EntityType="Self.tipoenfermedad" />
+          <EntitySet Name="tipomascota" EntityType="Self.tipomascota" />
+          <EntitySet Name="vacunas" EntityType="Self.vacunas" />
+          <EntitySet Name="usuarios" EntityType="Self.usuarios" />
+          <EntitySet Name="vacunas_mascota" EntityType="Self.vacunas_mascota" />
+          <AssociationSet Name="fk_serv_cli" Association="Self.fk_serv_cli">
+            <End Role="cliente" EntitySet="cliente" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_horas_dia" Association="Self.fk_horas_dia">
+            <End Role="dia" EntitySet="dia" />
+            <End Role="horas" EntitySet="horas" />
+          </AssociationSet>
+          <AssociationSet Name="fk_doc_per" Association="Self.fk_doc_per">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="docente" EntitySet="docente" />
+          </AssociationSet>
+          <AssociationSet Name="fk_est_doc" Association="Self.fk_est_doc">
+            <End Role="docente" EntitySet="docente" />
+            <End Role="estudiante" EntitySet="estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_med" Association="Self.fk_serv_med">
+            <End Role="docente" EntitySet="docente" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_enf_tipoenf" Association="Self.fk_enf_tipoenf">
+            <End Role="tipoenfermedad" EntitySet="tipoenfermedad" />
+            <End Role="enfermedades" EntitySet="enfermedades" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_enf" Association="Self.fk_serv_enf">
+            <End Role="enfermedades" EntitySet="enfermedades" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_est_per" Association="Self.fk_est_per">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="estudiante" EntitySet="estudiante" />
+          </AssociationSet>
+          <AssociationSet Name="fk_evs_serv" Association="Self.fk_evs_serv">
+            <End Role="servicio" EntitySet="servicio" />
+            <End Role="evaluacion_servicio" EntitySet="evaluacion_servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_hora" Association="Self.fk_serv_hora">
+            <End Role="horas" EntitySet="horas" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_per" Association="Self.fk_masc_per">
+            <End Role="persona" EntitySet="persona" />
+            <End Role="mascota" EntitySet="mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_raza" Association="Self.fk_masc_raza">
+            <End Role="raza" EntitySet="raza" />
+            <End Role="mascota" EntitySet="mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_tipomasc" Association="Self.fk_masc_tipomasc">
+            <End Role="tipomascota" EntitySet="tipomascota" />
+            <End Role="mascota" EntitySet="mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_masc_vac" Association="Self.fk_masc_vac">
+            <End Role="mascota" EntitySet="mascota" />
+            <End Role="vacunas_mascota" EntitySet="vacunas_mascota" />
+          </AssociationSet>
+          <AssociationSet Name="fk_serv_masc" Association="Self.fk_serv_masc">
+            <End Role="mascota" EntitySet="mascota" />
+            <End Role="servicio" EntitySet="servicio" />
+          </AssociationSet>
+          <AssociationSet Name="fk_medicacion_servicio" Association="Self.fk_medicacion_servicio">
+            <End Role="servicio" EntitySet="servicio" />
+            <End Role="medicacion" EntitySet="medicacion" />
+          </AssociationSet>
+          <AssociationSet Name="fk_raza_tipoMasc" Association="Self.fk_raza_tipoMasc">
+            <End Role="tipomascota" EntitySet="tipomascota" />
+            <End Role="raza" EntitySet="raza" />
+          </AssociationSet>
+          <AssociationSet Name="fk_vac_masc" Association="Self.fk_vac_masc">
+            <End Role="vacunas" EntitySet="vacunas" />
+            <End Role="vacunas_mascota" EntitySet="vacunas_mascota" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="vetonline3ModelStoreContainer" CdmEntityContainer="vetonline3Entities">
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="vetonline3Model.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="id_cliente" ColumnName="id_cliente" />
+                <ScalarProperty Name="fkPersona" ColumnName="fkPersona" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="fecha_creacion_c" ColumnName="fecha_creacion_c" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="dia">
+            <EntityTypeMapping TypeName="vetonline3Model.dia">
+              <MappingFragment StoreEntitySet="dia">
+                <ScalarProperty Name="idDia" ColumnName="idDia" />
+                <ScalarProperty Name="Dia1" ColumnName="Dia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="docente">
+            <EntityTypeMapping TypeName="vetonline3Model.docente">
+              <MappingFragment StoreEntitySet="docente">
+                <ScalarProperty Name="idDocente" ColumnName="idDocente" />
+                <ScalarProperty Name="fecha_creacion_d" ColumnName="fecha_creacion_d" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="enfermedades">
+            <EntityTypeMapping TypeName="vetonline3Model.enfermedades">
+              <MappingFragment StoreEntitySet="enfermedades">
+                <ScalarProperty Name="idEnfermedad" ColumnName="idEnfermedad" />
+                <ScalarProperty Name="descEnfermedad" ColumnName="descEnfermedad" />
+                <ScalarProperty Name="fkTipoEnf" ColumnName="fkTipoEnf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estudiante">
+            <EntityTypeMapping TypeName="vetonline3Model.estudiante">
+              <MappingFragment StoreEntitySet="estudiante">
+                <ScalarProperty Name="idEstudiante" ColumnName="idEstudiante" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="fkTutor" ColumnName="fkTutor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estudios_previos">
+            <EntityTypeMapping TypeName="vetonline3Model.estudios_previos">
+              <MappingFragment StoreEntitySet="estudios_previos">
+                <ScalarProperty Name="id_estudios_serv" ColumnName="id_estudios_serv" />
+                <ScalarProperty Name="Sintomas" ColumnName="Sintomas" />
+                <ScalarProperty Name="fechEnf" ColumnName="fechEnf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="evaluacion_servicio">
+            <EntityTypeMapping TypeName="vetonline3Model.evaluacion_servicio">
+              <MappingFragment StoreEntitySet="evaluacion_servicio">
+                <ScalarProperty Name="idEvaServ" ColumnName="idEvaServ" />
+                <ScalarProperty Name="notaEva" ColumnName="notaEva" />
+                <ScalarProperty Name="justifEva" ColumnName="justifEva" />
+                <ScalarProperty Name="fechEva" ColumnName="fechEva" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="horas">
+            <EntityTypeMapping TypeName="vetonline3Model.horas">
+              <MappingFragment StoreEntitySet="horas">
+                <ScalarProperty Name="idHora" ColumnName="idHora" />
+                <ScalarProperty Name="estadoh" ColumnName="estadoh" />
+                <ScalarProperty Name="Horas1" ColumnName="Horas" />
+                <ScalarProperty Name="fkDia" ColumnName="fkDia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="mascota">
+            <EntityTypeMapping TypeName="vetonline3Model.mascota">
+              <MappingFragment StoreEntitySet="mascota">
+                <ScalarProperty Name="idMascota" ColumnName="idMascota" />
+                <ScalarProperty Name="fkPersona" ColumnName="fkPersona" />
+                <ScalarProperty Name="nombreMasc" ColumnName="nombreMasc" />
+                <ScalarProperty Name="tipoMasc" ColumnName="tipoMasc" />
+                <ScalarProperty Name="Raza" ColumnName="Raza" />
+                <ScalarProperty Name="fecha_nacimiento" ColumnName="fecha_nacimiento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="medicacion">
+            <EntityTypeMapping TypeName="vetonline3Model.medicacion">
+              <MappingFragment StoreEntitySet="medicacion">
+                <ScalarProperty Name="id_medicacion_servicio" ColumnName="id_medicacion_servicio" />
+                <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+                <ScalarProperty Name="Medicamento" ColumnName="Medicamento" />
+                <ScalarProperty Name="Posologia" ColumnName="Posologia" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="persona">
+            <EntityTypeMapping TypeName="vetonline3Model.persona">
+              <MappingFragment StoreEntitySet="persona">
+                <ScalarProperty Name="Identificacion" ColumnName="Identificacion" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="fkRol" ColumnName="fkRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="raza">
+            <EntityTypeMapping TypeName="vetonline3Model.raza">
+              <MappingFragment StoreEntitySet="raza">
+                <ScalarProperty Name="idRaza" ColumnName="idRaza" />
+                <ScalarProperty Name="fkTipoMasc" ColumnName="fkTipoMasc" />
+                <ScalarProperty Name="DescRaza" ColumnName="DescRaza" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="rol">
+            <EntityTypeMapping TypeName="vetonline3Model.rol">
+              <MappingFragment StoreEntitySet="rol">
+                <ScalarProperty Name="idRol" ColumnName="idRol" />
+                <ScalarProperty Name="descRol" ColumnName="descRol" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="servicio">
+            <EntityTypeMapping TypeName="vetonline3Model.servicio">
+              <MappingFragment StoreEntitySet="servicio">
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="fkCliente" ColumnName="fkCliente" />
+                <ScalarProperty Name="fkMedico" ColumnName="fkMedico" />
+                <ScalarProperty Name="fkMascota" ColumnName="fkMascota" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="fecha_servicio" ColumnName="fecha_servicio" />
+                <ScalarProperty Name="fkEnfermedad" ColumnName="fkEnfermedad" />
+                <ScalarProperty Name="fkHora" ColumnName="fkHora" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipoenfermedad">
+            <EntityTypeMapping TypeName="vetonline3Model.tipoenfermedad">
+              <MappingFragment StoreEntitySet="tipoenfermedad">
+                <ScalarProperty Name="id_tipo_enfermedad" ColumnName="id_tipo_enfermedad" />
+                <ScalarProperty Name="tipoEnf" ColumnName="tipoEnf" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipomascota">
+            <EntityTypeMapping TypeName="vetonline3Model.tipomascota">
+              <MappingFragment StoreEntitySet="tipomascota">
+                <ScalarProperty Name="idTipoMascota" ColumnName="idTipoMascota" />
+                <ScalarProperty Name="descTipoMasc" ColumnName="descTipoMasc" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vacunas">
+            <EntityTypeMapping TypeName="vetonline3Model.vacunas">
+              <MappingFragment StoreEntitySet="vacunas">
+                <ScalarProperty Name="idVacuna" ColumnName="idVacuna" />
+                <ScalarProperty Name="fkTipoEnfermedad" ColumnName="fkTipoEnfermedad" />
+                <ScalarProperty Name="descVacuna" ColumnName="descVacuna" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="usuarios">
+            <EntityTypeMapping TypeName="vetonline3Model.usuarios">
+              <MappingFragment StoreEntitySet="usuarios">
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="fecha_creacion_u" ColumnName="fecha_creacion_u" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vacunas_mascota">
+            <EntityTypeMapping TypeName="vetonline3Model.vacunas_mascota">
+              <MappingFragment StoreEntitySet="vacunas_mascota">
+                <ScalarProperty Name="idVacuna" ColumnName="idVacuna" />
+                <ScalarProperty Name="idMascota" ColumnName="idMascota" />
+                <ScalarProperty Name="fechaAplicacion" ColumnName="fechaAplicacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

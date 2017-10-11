@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7bdd0e34e86141b29ffd29dc888fab69" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="vetonline3Model.cliente" Width="1.5" PointX="6" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.dia" Width="1.5" PointX="3.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.docente" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.enfermedades" Width="1.5" PointX="6" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.estudiante" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.estudios_previos" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.evaluacion_servicio" Width="1.5" PointX="10.5" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.horas" Width="1.5" PointX="6" PointY="16.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.mascota" Width="1.5" PointX="3" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.medicacion" Width="1.5" PointX="10.5" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.persona" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.raza" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.rol" Width="1.5" PointX="10.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.servicio" Width="1.5" PointX="8.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.tipoenfermedad" Width="1.5" PointX="3.75" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.tipomascota" Width="1.5" PointX="1.5" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.vacunas" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.usuarios" Width="1.5" PointX="8.75" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="vetonline3Model.vacunas_mascota" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <AssociationConnector Association="vetonline3Model.fk_serv_cli" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_horas_dia" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_doc_per" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_est_doc" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_serv_med" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_enf_tipoenf" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_serv_enf" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_est_per" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_evs_serv" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_serv_hora" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_masc_per" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_masc_raza" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_masc_tipomasc" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_masc_vac" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_serv_masc" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_medicacion_servicio" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_raza_tipoMasc" ManuallyRouted="false" />
+        <AssociationConnector Association="vetonline3Model.fk_vac_masc" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

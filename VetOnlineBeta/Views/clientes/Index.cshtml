@@ -1,0 +1,45 @@
+﻿@model IEnumerable<VetOnlineBeta.cliente>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fkPersona)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Direccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_creacion_c)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fkPersona)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Direccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_creacion_c)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.id_cliente }) |
+            @Html.ActionLink("Details", "Details", new { id=item.id_cliente }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.id_cliente })
+        </td>
+    </tr>
+}
+
+</table>

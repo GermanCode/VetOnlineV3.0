@@ -1,0 +1,57 @@
+﻿@model IEnumerable<VetOnlineBeta.persona>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombres)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Apellidos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fkRol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.docente.idDocente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estudiante.idEstudiante)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombres)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Apellidos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fkRol)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.docente.idDocente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estudiante.idEstudiante)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Identificacion }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Identificacion }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Identificacion })
+        </td>
+    </tr>
+}
+
+</table>

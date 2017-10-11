@@ -1,0 +1,58 @@
+﻿@model VetOnlineBeta.mascota
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>mascota</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreMasc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreMasc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_nacimiento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_nacimiento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.persona.Nombres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.persona.Nombres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.raza1.DescRaza)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.raza1.DescRaza)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipomascota.descTipoMasc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipomascota.descTipoMasc)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idMascota }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
