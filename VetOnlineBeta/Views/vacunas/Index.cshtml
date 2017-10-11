@@ -1,0 +1,39 @@
+﻿@model IEnumerable<VetOnlineBeta.vacunas>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.fkTipoEnfermedad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.descVacuna)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.fkTipoEnfermedad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.descVacuna)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idVacuna }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idVacuna }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idVacuna })
+        </td>
+    </tr>
+}
+
+</table>
