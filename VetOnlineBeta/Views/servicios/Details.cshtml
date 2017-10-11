@@ -1,0 +1,98 @@
+﻿@model VetOnlineBeta.servicio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_servicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_servicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.id_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.id_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docente.idDocente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docente.idDocente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.enfermedades.descEnfermedad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.enfermedades.descEnfermedad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.evaluacion_servicio.idEvaServ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.evaluacion_servicio.idEvaServ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horas.estadoh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horas.estadoh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mascota.idMascota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mascota.idMascota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicacion.Medicamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicacion.Medicamento)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idServicio }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

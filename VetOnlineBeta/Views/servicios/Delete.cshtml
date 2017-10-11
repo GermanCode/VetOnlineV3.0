@@ -1,0 +1,104 @@
+﻿@model VetOnlineBeta.servicio
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>servicio</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Descripcion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_servicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_servicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cliente.id_cliente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cliente.id_cliente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.docente.idDocente)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.docente.idDocente)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.enfermedades.descEnfermedad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.enfermedades.descEnfermedad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.evaluacion_servicio.idEvaServ)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.evaluacion_servicio.idEvaServ)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.horas.estadoh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.horas.estadoh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mascota.idMascota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mascota.idMascota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.medicacion.Medicamento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.medicacion.Medicamento)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

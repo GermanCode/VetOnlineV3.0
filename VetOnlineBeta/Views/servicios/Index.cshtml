@@ -1,0 +1,87 @@
+﻿@model IEnumerable<VetOnlineBeta.servicio>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descripcion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_servicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cliente.id_cliente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.docente.idDocente)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.enfermedades.descEnfermedad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.evaluacion_servicio.idEvaServ)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.horas.estadoh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mascota.idMascota)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.medicacion.Medicamento)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descripcion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_servicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cliente.id_cliente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.docente.idDocente)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.enfermedades.descEnfermedad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.evaluacion_servicio.idEvaServ)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.horas.estadoh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mascota.idMascota)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.medicacion.Medicamento)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idServicio }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idServicio }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idServicio })
+        </td>
+    </tr>
+}
+
+</table>

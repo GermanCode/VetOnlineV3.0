@@ -180,6 +180,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\mascotasController.cs" />
     <Compile Include="Controllers\personasController.cs" />
+    <Compile Include="Controllers\serviciosController.cs" />
     <Compile Include="Controllers\tipoenfermedadsController.cs" />
     <Compile Include="dia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -347,6 +348,11 @@
     <Content Include="Views\tipoenfermedads\Details.cshtml" />
     <Content Include="Views\tipoenfermedads\Edit.cshtml" />
     <Content Include="Views\tipoenfermedads\Index.cshtml" />
+    <Content Include="Views\servicios\Create.cshtml" />
+    <Content Include="Views\servicios\Delete.cshtml" />
+    <Content Include="Views\servicios\Details.cshtml" />
+    <Content Include="Views\servicios\Edit.cshtml" />
+    <Content Include="Views\servicios\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
